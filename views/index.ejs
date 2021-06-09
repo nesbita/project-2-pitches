@@ -1,0 +1,20 @@
+<div class="container">
+    <h1 class="text-center">WELCOME TO MARKET MATCH</h1>
+    <p class="text-center">
+      <h2>We'll help you find the farmers markets near you.</h2> 
+      <h2>Enter your zip code below to get started.</h2>
+    </p>
+ </div> 
+
+  <form action="/list" method="GET">
+      <div class="form-group">
+          <label for="name">Your Name</label>
+          <input type="text" class="form-control" id="name" name='name' required />
+      </div>
+        
+      <div class="form-group">
+          <label for="content">Your Zip Code</label>
+          <textarea type="integer" class="form-control" id="zipcode" name="zipcode" required></textarea>
+      </div>
+      <input type="submit" class="btn btn-primary">
+  </form>
