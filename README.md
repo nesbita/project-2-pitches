@@ -17,7 +17,7 @@ In designing and building your project, you will start by forking and cloneing t
 Market Finder
 
 2. Technologies used: 
-Axios, Express, Postgres SQL, Sequelize, Express-ejs, Express-ejs-layouts,  HTML, CSS, Javascript
+Axios, Express, PostgresSQL, Sequelize, Express-ejs, Express-ejs-layouts,  HTML, CSS, Javascript
 
 3. Simple wireframes
      * Can be handdrawn, or with tool of your choice
@@ -28,7 +28,7 @@ Axios, Express, Postgres SQL, Sequelize, Express-ejs, Express-ejs-layouts,  HTML
  USDA National Farmer's Market Directory API
 
 6. Example of how to call/invoke your API, and a description of what data comes back. 
-Fill in the zip code value where it's called for ("http://search.ams.usda.gov/farmersmarkets/v1/data.svc/zipSearch?zip=" + zip,) and receive nearby farmer's markets' names and ids.  Ids can then be used to find the market address, schedule, and products, as well as a link to Google Maps when added to another url (url: "http://search.ams.usda.gov/farmersmarkets/v1/data.svc/mktDetail?id=" + id,).
+Fill in the zip code value where it's called for ("http://search.ams.usda.gov/farmersmarkets/v1/data.svc/zipSearch?zip=" + zip,) and receive nearby farmers markets' names and ids.  Ids can then be used to find the market address, schedule, and products, as well as a link to Google Maps when added to another url (url: "http://search.ams.usda.gov/farmersmarkets/v1/data.svc/mktDetail?id=" + id,).
 
 7. MVP goals (x3-5)
 -Create a GET route to find markets by zip code 
@@ -38,7 +38,7 @@ Fill in the zip code value where it's called for ("http://search.ams.usda.gov/fa
 -Create a DELETE route to remove comments
 
 8. Stretch goals (x2-5)
--use geolocation API and mapbox to show user's distance from farmer's markets
+-use geolocation API and mapbox to show user's distance from farmers markets
 -include mapping visuals
 -save zip code
 
