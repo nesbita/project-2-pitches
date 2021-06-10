@@ -1,6 +1,7 @@
 const express = require('express');
 const axios = require('axios');
 const ejsLayouts = require('express-ejs-layouts');
+const db = require('./models');
 const app = express();
 const port = 4000 
 
@@ -9,17 +10,18 @@ app.use(express.urlencoded({ extended: false }));
 app.use(ejsLayouts);
 app.use(express.static(__dirname + '/public/'))
 
+
 app.get('/', (req, res) => {
     res.render('index')
 });
 
 // redirect to /list page after clicking button on home page 
-app.post('/list', (req, res) => {
-    console.log(req.body.zipcode)
-  let apiUrl1 = `http://search.ams.usda.gov/farmersmarkets/v1/data.svc/zipSearch?zip=${req.body.zipcode}`;
+app.get('/list', (req, res) => {
+    console.log(req.query)
+  let apiUrl1 = `http://search.ams.usda.gov/farmersmarkets/v1/data.svc/zipSearch?zip=${req.query.zipcode}`;
   axios.get(apiUrl1).then(apiResponse => {
     let farmMarket = apiResponse.data.results;
-    res.render('list', { farmMarket });
+    res.render('list', { farmMarket, name:req.query.name, zipcode:req.query.zipcode });
     // console.log('it worked! 🐸 ')
   })
 });
@@ -29,10 +31,43 @@ app.get('/details/:id', (req, res) => {
   axios.get(apiUrl2).then(apiResponse => {
     console.log(apiResponse.data)
     let farmMarketData = apiResponse.data;
-    res.render('details', { farmMarketData });
+    res.render('details', { farmMarketData, name:req.query.name, zipcode:req.query.zipcode, id:req.params.id, marketname:req.query.marketname });
   })
     console.log('🐧')
 })
+
+app.get('/favorite', (req, res) => {
+    // Get all records from the DB of pokemons
+    db.favorite.findAll()
+      .then(result => {
+        // render pokemon/index.ejs with returned pokemon data
+        res.render('favorite', { favorites: result })
+      })
+  });
+
+app.post('/favorite', (req, res) => {
+    let name = req.body.name
+    db.favorite.findOrCreate({
+        where: {
+            name: name
+        }
+    })
+        .then(() => {
+            res.redirect('/favorite');
+        })
+        .catch((err) => {
+            console.log('ahhhhh!')
+        })
+    });
+  
+
+    
+    // find or create user
+    // create a market and associate to user
+    // res.redirect to get/favorite
+     
+;
+
 
 app.use('/markets', require('./routes/markets'))
 
@@ -40,3 +75,4 @@ app.use('/markets', require('./routes/markets'))
 app.listen(port, () => {
     console.log('...listening on', port );
 })
+

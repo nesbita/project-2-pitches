@@ -2,7 +2,8 @@
 <div class="deets"></div>
 <h1>Choose a Farm for More Details</h1>
 <% farmMarket.forEach(farm => { %>
-    <a href="/details/<%=farm.id%>">
+    <a href="/details/<%=farm.id%>?name=<%=name%>&zipcode=<%=zipcode%>&marketname=<%=farm.marketname.slice(4)%>">
+
       <br>
       <%=farm.marketname.slice(4)%></a>
 <% }); %>
