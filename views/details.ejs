@@ -1,18 +1,13 @@
-<!-- <div class="container">
-    <h1 class="text-center">Market Details</h1>
-    <p class="text-center">
-      <a href= '/'>Home Page</a>
-    </p>
-  
-    <% market.forEach(function(market) { %>
-      <div class="deets">
-        <h2><%= market.name %></h2>
-        <form method="GET" action="market/<%= market.name %>">
-            < <input hidden type="text" name="id" value="<%= market.id %>"> -->
-          <!---  <input hidden type="text" name="name" value="<%=market.name%>">
-            <button class="btn btn-primary" type="submit">Add Market to Favorites</button>
-          </form>
-      </div>
-    <% }); %>
-  </div> -->
+<div class="container">
+  <h1 class="text-center">Pokemon Details</h1>
+  <img src="<%= pokemon.sprites.front_default%>" />
+  <h3>name: <%=pokemon.name%> </h3>
+  <h4>type: <%=pokemon.types[0].type.name%></h4>
+  <h4>ability: <%=pokemon.abilities[0].ability.name%></h4>
+  <h4>weight: <%=pokemon.weight%></h4>
+  <h4>height: <%=pokemon.height%></h4>
+  <p class="text-center">
+    <a href= '/'>Home Page</a>
+  </p>
+</div>
 
