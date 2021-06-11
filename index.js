@@ -4,9 +4,11 @@ const ejsLayouts = require('express-ejs-layouts');
 const db = require('./models');
 const app = express();
 const port = 4000 
+const methodOverride = require('method-override')
 
 app.set('view engine', 'ejs')
 app.use(express.urlencoded({ extended: false }));
+app.use(methodOverride('_method'))
 app.use(ejsLayouts);
 app.use(express.static(__dirname + '/public/'))
 
@@ -63,6 +65,11 @@ app.post('/favorite', (req, res) => {
         })
     });
   
+app.delete('/favorite/:name', (req, res) => {
+        console.log(req.params.name)
+        // req.params.name
+        res.redirect('favorite')
+    })
 
     
     // find or create user

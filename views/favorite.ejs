@@ -2,13 +2,12 @@
 <ul>
 <h3><% favorites.forEach(favorite => { %>
   <li><%= favorite.name %></li>   
+  <form method="POST" action="/favorite/<%= favorite.name %>/?_method=DELETE">
+    <input type="submit" value="Delete">
+  </form>
  <% }) %> 
 </h3>
-
-<!-- <h3><% favorites.forEach(favorite => { %>
- <li><%= favorite.marketname %></li>  
-<% }) %> 
-</h3> -->
 </ul>
 
 <a href="/">Home Page</a>
+
