@@ -52,7 +52,6 @@ app.post('/favorite', (req, res) => {
     db.favorite.findOrCreate({
         where: {
             name: marketName
-
         }
     })
         .then((data) => {
@@ -81,18 +80,54 @@ app.delete('/favorite/:name', (req, res) => {
         console.log('noooo')
     })
 
-})
+});
 
     
     // find or create user
     // create a market and associate to user
     // res.redirect to get/favorite
-     
-;
 
+app.post('/list', (req, res) => {
+    let currentUser = req.body.name
+    db.user.findOrCreate({
+        where: {
+            name: currentUser,
+            zipcode: req.body.zipcode
+            }
+        })
+            .then((data) => {
+                console.log(data)
+                res.redirect(`/list?name=${req.body.name}&zipcode=${req.body.zipcode}`)
+            })
+            .catch((err) => {
+                console.log(err, '🐞')
+            })
+        });
+
+app.get('/list', (req, res) => {
+    res.render('list')
+})
+
+// displays current user favorites from db
+app.get('/favorite', (req, res) => {
+    let currentUser = req.query.user
+
+    db.user.findAll({
+        where: {
+            username: currentUser
+        }
+    }).then((response) => {
+        let favorite = response[0].dataValues.favorite
+        res.render('favorite', { favorite: favorite })
+    })
+})
+
+// GET logout route
+app.get('/logout', (req, res) => {
+    res.render('index', {logout: true})
+  })
 
 app.use('/markets', require('./routes/markets'))
-
 
 app.listen(port, () => {
     console.log('...listening on', port );

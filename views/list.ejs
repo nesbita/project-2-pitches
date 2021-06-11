@@ -1,10 +1,24 @@
 <div>
-<div class="deets"></div>
+  <p id='user'></p>
+
+  <script>
+    if (!localStorage.getItem('user')) {
+              let user = "<%- name %>"
+              localStorage.setItem('user', user)
+    }
+    let currentUser = localStorage.getItem('user')
+  </script>
+  
+  <script>
+    document.getElementById('user').innerText = `Hello, ${currentUser}.  Here are your markets.`
+    document.getElementById('userInput').value = currentUser
+    console.log(`User logged in: ${currentUser}`)
+  </script>
+
 <h1>Choose a Farm for More Details</h1>
 <% farmMarket.forEach(farm => { %>
     <a href="/details/<%=farm.id%>?name=<%=name%>&zipcode=<%=zipcode%>&marketname=<%=farm.marketname.slice(4)%>">
-
       <br>
       <%=farm.marketname.slice(4)%></a>
-<% }); %>
+<% }); %>  
 </div>
