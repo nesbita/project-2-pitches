@@ -66,10 +66,22 @@ app.post('/favorite', (req, res) => {
     });
   
 app.delete('/favorite/:name', (req, res) => {
-        console.log(req.params.name)
+    console.log(req.params.name)
         // req.params.name
-        res.redirect('favorite')
+    db.favorite.destroy({
+        where: {
+        name: req.params.name
+        }
     })
+    .then ((data) => {
+        console.log('success 🐮')
+        res.redirect('/favorite')
+    })
+    .catch((err) => {
+        console.log('noooo')
+    })
+
+})
 
     
     // find or create user
