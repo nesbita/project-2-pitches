@@ -1,1 +1,14 @@
-<h1>hello</h1>
+<h1>Favorite Markets</h1>
+<ul>
+<h3><% favorites.forEach(favorite => { %>
+  <li><%= favorite.name %></li>   
+ <% }) %> 
+</h3>
+
+<!-- <h3><% favorites.forEach(favorite => { %>
+ <li><%= favorite.marketname %></li>  
+<% }) %> 
+</h3> -->
+</ul>
+
+<a href="/">Home Page</a>

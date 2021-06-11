@@ -46,15 +46,18 @@ app.get('/favorite', (req, res) => {
   });
 
 app.post('/favorite', (req, res) => {
-    let name = req.body.name
+    let marketName = req.body.marketname
     db.favorite.findOrCreate({
         where: {
-            name: name
+            name: marketName
+
         }
     })
-        .then(() => {
+        .then((data) => {
             res.redirect('/favorite');
+            console.log(data)
         })
+        
         .catch((err) => {
             console.log('ahhhhh!')
         })
