@@ -10,13 +10,29 @@
   </p>
 </div>
 
+<script>
+  if (!localStorage.getItem('user')) {
+            let user = "<%- name %>"
+            localStorage.setItem('user', user)
+  }
+  let currentUser = localStorage.getItem('user')
+</script>
 
     <div class="faves">
       <h3><%= farmMarketData.id %></h2>
       <form method="POST" action="/favorite">
           <input hidden type="text" name="marketname" value="<%=marketname%>"> 
           <input hidden type="text" name="name" value="<%=name%>"> 
+          <input hidden name="user" id="userInput" />
            <input class="btn btn-primary" type="submit" value='Add Market to Favorites!'>
         </form>
+
+         
+  <script>
+    document.getElementById('user').innerText = `Hello, ${currentUser}.  Here are your markets.`
+    document.getElementById('userInput').value = currentUser
+    console.log(`User logged in: ${currentUser}`)
+  </script>
+
     </div>
 

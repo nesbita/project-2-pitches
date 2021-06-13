@@ -12,7 +12,6 @@ app.use(methodOverride('_method'))
 app.use(ejsLayouts);
 app.use(express.static(__dirname + '/public/'))
 
-
 app.get('/', (req, res) => {
     res.render('index')
 });
@@ -49,6 +48,24 @@ app.get('/favorite', (req, res) => {
 
 app.post('/favorite', (req, res) => {
     let marketName = req.body.marketname
+    let currentUser = req.body.name
+    // console.log(req.body, '🐣')
+    db.user.findOne({
+        where: {
+            name: currentUser
+        }
+    }).then((user) => {
+        user.createFavorite({
+            name: marketName 
+        }).then((favorite) => {
+            console.log('favorite was added to the database 🦄', favorite)
+        })
+        // }).catch(err => 
+        //     console.log(err))
+    })
+        // res.redirect('/favorite')
+    // }).catch(err => 
+    //     console.log(err))
     db.favorite.findOrCreate({
         where: {
             name: marketName
@@ -59,9 +76,9 @@ app.post('/favorite', (req, res) => {
             console.log(data)
         })
         
-        .catch((err) => {
-            console.log('ahhhhh!')
-        })
+        // .catch((err) => {
+        //     console.log('ahhhhh!')
+        // })
     });
   
 app.delete('/favorite/:name', (req, res) => {
@@ -109,23 +126,22 @@ app.get('/list', (req, res) => {
 })
 
 // displays current user favorites from db
-app.get('/favorite', (req, res) => {
-    let currentUser = req.query.user
+// app.get('/favorite', (req, res) => {
+//     let currentUser = req.query.user
 
-    db.user.findAll({
-        where: {
-            username: currentUser
-        }
-    }).then((response) => {
-        let favorite = response[0].dataValues.favorite
-        res.render('favorite', { favorite: favorite })
-    })
-})
+    
+
+
+// associate users and favorites
+
+// })
 
 // GET logout route
 app.get('/logout', (req, res) => {
     res.render('index', {logout: true})
   })
+
+
 
 app.use('/markets', require('./routes/markets'))
 
