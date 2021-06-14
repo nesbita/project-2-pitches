@@ -1,12 +1,10 @@
-<div class="container">
-    <h1 class="text-center">WELCOME TO MARKET MATCH!</h1>
+<div class="updatedContainer">
     <h2 class="text-center">
-      We'll help you find the farmers markets near you.
-      Enter your name and zip code below to get started.
+      Need to update your location?  Put in your name and a new zip code below.
     </h2>
  </div> 
 
-  <form action="/list" method="POST">
+  <form action="/update?_method=PUT" method="POST">
       <div class="text-center">
           <label for="name">Your Name</label>
           <input type="text" id="name" name='name' required />
@@ -18,5 +16,3 @@
       </div>
       <button class="btn btn-primary">Find my market!</button> 
   </form>
-
-

@@ -36,42 +36,43 @@ router.get('/favorite', (req, res) => {
 });
 
 // (FAVORITES) post information to /favorites page
-router.post('/favorite', (req, res) => {
+router.post('/favorite', async(req, res) => {
     let marketName = req.body.marketname
     let currentUser = req.body.name
     // console.log(req.body, '🐣')
 
     // find a user
-    db.user.findOne({
+    let foundUser = await db.user.findOne({
         where: {
             name: currentUser
         }
-
     // associate the user and their favorite market(s)    
-    }).then((user) => {
-        user.createFavorite({
-            name: marketName 
-        })
-        .then((favorite) => {
-            console.log('favorite was added to the database 🦄', favorite)
-        })
+    })
+        // user.createFavorite({
+        //     name: marketName 
+        // })
+        // .then((favorite) => {
+        //     console.log('favorite was added to the database 🦄', favorite)
+        // })
         // }).catch(err => 
         //     console.log(err))
-    })
+    // })
         // res.redirect('/favorite')
     // }).catch(err => 
     //     console.log(err))
 
     // find or create a market
-    db.favorite.findOrCreate({
+    let favorite = await db.favorite.findOrCreate({
         where: {
             name: marketName
         }
     })
-        .then((data) => {
+    await foundUser.addFavorite(favorite[0])
+    // console.log(favorite[1], '🦋')
+        // .then((data) => {
             res.redirect('/favorite');
-            console.log(data)
-        })
+        //     console.log(data)
+        // })
         // .catch((err) => {
         //     console.log('ahhhhh!')
         // })
@@ -113,11 +114,21 @@ router.post('/list', (req, res) => {
         })
 });
 
-// go to list of markets
-router.get('/list', (req, res) => {
-    res.render('list')
+// get route so we can redirect to update page
+router.get('/update', (req, res) => {
+    res.render('update')
 })
 
+router.put('/update', (req, res) => {
+    console.log(req.body)
+
+    // find user in database
+    // update their zipcode
+    
+    res.redirect(`/list?name=${req.body.name}&zipcode=${req.body.zipcode}`)
+    
+
+})
 
 // (LOGOUT) logout route
 router.get('/logout', (req, res) => {
