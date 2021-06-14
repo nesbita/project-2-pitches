@@ -1,5 +1,5 @@
 <div>
-  <p id='user'></p>
+  <h2 id='user'></h2>
 
   <script>
     if (!localStorage.getItem('user')) {
@@ -15,7 +15,7 @@
     console.log(`User logged in: ${currentUser}`)
   </script>
 
-<h1>Choose a Farm for More Details</h1>
+<h3>Choose a Farm for More Details</h3>
 <% farmMarket.forEach(farm => { %>
     <a href="/details/<%=farm.id%>?name=<%=name%>&zipcode=<%=zipcode%>&marketname=<%=farm.marketname.slice(4)%>">
       <br>

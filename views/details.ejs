@@ -1,10 +1,10 @@
 <div class="container">
   <h1 class="text-center">Farm Details</h1>
   
-  <h4>Address: <%=farmMarketData.marketdetails.Address%></h4>
-  <h4>Schedule: <%=farmMarketData.marketdetails.Schedule.slice(0, -16)%></h4>
-  <h4>Products: <%=farmMarketData.marketdetails.Products%></h4>
-  <a target='_blank' href='<%=farmMarketData.marketdetails.GoogleLink%>'>Google Maps</a>
+  <h3><strong>Address:</strong> <%=farmMarketData.marketdetails.Address%></h3>
+  <h3><strong>Schedule:</strong> <%=farmMarketData.marketdetails.Schedule.slice(0, -16)%></h3>
+  <h3><strong>Products:</strong> <%=farmMarketData.marketdetails.Products%></h3>
+  <h3><a target='_blank' href='<%=farmMarketData.marketdetails.GoogleLink%>'><strong>Google Maps</strong></a></h3>
   <p class="text-center">
     <a href= '/list?name=<%=name%>&zipcode=<%=zipcode%>'>Back to Farm List</a>
   </p>
@@ -19,20 +19,19 @@
 </script>
 
     <div class="faves">
-      <h3><%= farmMarketData.id %></h2>
+      <h3><%= farmMarketData.id %></h3>
       <form method="POST" action="/favorite">
           <input hidden type="text" name="marketname" value="<%=marketname%>"> 
           <input hidden type="text" name="name" value="<%=name%>"> 
           <input hidden name="user" id="userInput" />
            <input class="btn btn-primary" type="submit" value='Add Market to Favorites!'>
         </form>
-
-         
+  
   <script>
     document.getElementById('user').innerText = `Hello, ${currentUser}.  Here are your markets.`
     document.getElementById('userInput').value = currentUser
     console.log(`User logged in: ${currentUser}`)
   </script>
-
+  
     </div>
 
