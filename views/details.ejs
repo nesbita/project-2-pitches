@@ -1,3 +1,8 @@
+  <script>
+   
+    let currentUser = localStorage.getItem('user')
+    console.log(currentUser, 'VERY UNIQUE IDENTIFIER IN FIRST SCRIPT TAG 🐻')
+  </script>
 <div class="container">
   <h1 class="text-center">Farm Details</h1>
   
@@ -10,13 +15,6 @@
   </p>
 </div>
 
-<script>
-  if (!localStorage.getItem('user')) {
-            let user = "<%- name %>"
-            localStorage.setItem('user', user)
-  }
-  let currentUser = localStorage.getItem('user')
-</script>
 
     <div class="faves">
       <h3><%= farmMarketData.id %></h3>
@@ -27,11 +25,7 @@
            <input class="btn btn-primary" type="submit" value='Add Market to Favorites!'>
         </form>
   
-  <script>
-    document.getElementById('user').innerText = `Hello, ${currentUser}.  Here are your markets.`
-    document.getElementById('userInput').value = currentUser
-    console.log(`User logged in: ${currentUser}`)
-  </script>
+  
   
     </div>
 

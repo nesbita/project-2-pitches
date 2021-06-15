@@ -25,16 +25,6 @@ router.get('/details/:id', (req, res) => {
       console.log('🐧')
 })
 
-// (FAVORITES) go to /favorites page after clicking button 
-router.get('/favorite', (req, res) => {
-    // Get all market records from API database
-    db.favorite.findAll()
-      .then(result => {
-        // render /favorite.ejs with returned favorites data 
-        res.render('favorite', { favorites: result })
-      })
-});
-
 // (FAVORITES) post information to /favorites page
 router.post('/favorite', async(req, res) => {
     let marketName = req.body.marketname
@@ -77,6 +67,33 @@ router.post('/favorite', async(req, res) => {
         //     console.log('ahhhhh!')
         // })
     });
+
+// (FAVORITES) go to /favorites page after clicking button 
+router.get('/favorite', async (req, res) => {
+    // Get all records from the DB of favorites
+    let currentUser = req.query.name
+        console.log(currentUser, '🦆')
+        
+    let user = await db.user.findOne({
+        where: {
+        name: currentUser
+        }
+        })
+        console.log(user, '🦊')
+    let fav = await user.getFavorites()
+        console.log(fav, '🐼')
+            res.render('favorite', {favorites: fav})
+})
+//2nd
+// router.get('/favorite', (req, res) => {
+//     // Get all market records from API database
+//     db.favorite.findAll()
+//       .then(result => {
+//         // render /favorite.ejs with returned favorites data 
+//         res.render('favorite', { favorites: result })
+//       })
+// });
+        
 
 // (DELETE) delete a favorite from favorites list
 router.delete('/favorite/:name', (req, res) => {
@@ -121,7 +138,13 @@ router.get('/update', (req, res) => {
 
 router.put('/update', (req, res) => {
     console.log(req.body)
-
+db.user.update(
+    {zipcode: req.body.zipcode
+    },
+    {
+     where: {name:req.body.name}
+    }
+)
     // find user in database
     // update their zipcode
     

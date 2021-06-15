@@ -1,3 +1,7 @@
+ <script>
+   let currentUser = localStorage.getItem('user')
+   console.log(`FYI the current user is: ${currentUser}`)
+ </script> 
 <h1>Favorite Markets</h1>
 <ul>
 <h3><% favorites.forEach(favorite => { %>
@@ -8,10 +12,6 @@
  <% }) %> 
 </h3>
 </ul>
-<script>
-  let currentUser = localStorage.getItem('user')
-  console.log(`FYI the current user is: ${currentUser}`)
-</script> 
 
 <a href="/">Home Page</a>
 
