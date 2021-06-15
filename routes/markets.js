@@ -29,7 +29,7 @@ router.get('/details/:id', (req, res) => {
 router.post('/favorite', async(req, res) => {
     let marketName = req.body.marketname
     let currentUser = req.body.name
-    // console.log(req.body, '🐣')
+    console.log(req.body, '🐣')
 
     // find a user
     let foundUser = await db.user.findOne({
@@ -60,7 +60,7 @@ router.post('/favorite', async(req, res) => {
     await foundUser.addFavorite(favorite[0])
     // console.log(favorite[1], '🦋')
         // .then((data) => {
-            res.redirect('/favorite');
+            res.redirect(`/favorite?name=${currentUser}`);
         //     console.log(data)
         // })
         // .catch((err) => {
