@@ -1,3 +1,25 @@
+<style>
+body{
+  background-image: url('/images/details_page_image.jpeg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin-top: 15%;
+  color: whitesmoke;
+}  
+
+.container{
+    background-color: rgba(184, 162, 125, 0.5);
+    display: block;
+    justify-content: center; 
+    
+  }
+
+a{ 
+  font-size: 24px;
+  font-weight: bold;
+  color: whitesmoke;
+}  
+</style>  
   <script>
    
     let currentUser = localStorage.getItem('user')
@@ -6,10 +28,10 @@
 <div class="container">
   <h1 class="text-center">Farm Details</h1>
   
-  <h3><strong>Address:</strong> <%=farmMarketData.marketdetails.Address%></h3>
-  <h3><strong>Schedule:</strong> <%=farmMarketData.marketdetails.Schedule.slice(0, -16)%></h3>
-  <h3><strong>Products:</strong> <%=farmMarketData.marketdetails.Products%></h3>
-  <h3><a target='_blank' href='<%=farmMarketData.marketdetails.GoogleLink%>'><strong>Google Maps</strong></a></h3>
+  <h2><strong>Address:</strong> <%=farmMarketData.marketdetails.Address%></h2>
+  <h2><strong>Schedule:</strong> <%=farmMarketData.marketdetails.Schedule.slice(0, -16)%></h2>
+  <h2><strong>Products:</strong> <%=farmMarketData.marketdetails.Products%></h2><br>
+  <h2><a target='_blank' href='<%=farmMarketData.marketdetails.GoogleLink%>'><strong>Google Maps</strong></a></h2>
   <p class="text-center">
     <a href= '/list?name=<%=name%>&zipcode=<%=zipcode%>'>Back to Farm List</a>
   </p>
@@ -22,10 +44,11 @@
           <input hidden type="text" name="marketname" value="<%=marketname%>"> 
           <input hidden type="text" name="name" value="<%=name%>"> 
           <input hidden name="user" id="userInput" />
-           <input class="btn btn-primary" type="submit" value='Add Market to Favorites!'>
         </form>
-  
-  
+        
+        <div class="text-center">
+        <input class="btn btn-primary" type="submit" value='Add Market to Favorites!'>
+        </div>
   
     </div>
 

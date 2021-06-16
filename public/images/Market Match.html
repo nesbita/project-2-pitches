@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<!-- saved from url=(0052)http://localhost:4000/list?name=Ariana&zipcode=80016 -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><link rel="stylesheet" href="./Market Match_files/css">
+  
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Market Match</title>
+
+   <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="./Market Match_files/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  </head>
+  <body>
+    <style>
+  body{
+    background-image: url('/images/list_page_image.jpeg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin-left: 5%;
+    color: whitesmoke;
+  } 
+  
+  .container{
+    background-color: rgba(184, 162, 125, 0.2);
+    display: block;
+    justify-content: center; 
+    padding-bottom: 25px;
+    margin-right: 70%;
+  }
+
+  a{
+    color: whitesmoke;
+    font-size: 24px;
+    font-weight: bold;
+  }
+
+  h2{
+    text-decoration: underline;
+    padding: 10px;
+  }
+
+  li{
+    list-style: none;
+    line-height: 30px;
+  }
+</style>
+
+<div class="container">
+  <h1 id="user">Hello, Ariana.  Here are your markets.</h1>
+
+  <a href="http://localhost:4000/update">Update Location</a> 
+  <br>
+  <br>
+  <br>
+  <br>
+
+  <script>
+    if (!localStorage.getItem('user')) {
+              let user = "Ariana"
+              localStorage.setItem('user', user)
+    }
+    let currentUser = localStorage.getItem('user')
+  </script>
+  
+  <script>
+    document.getElementById('user').innerText = `Hello, ${currentUser}.  Here are your markets.`
+    document.getElementById('userInput').value = currentUser
+    console.log(`User logged in: ${currentUser}`, 'IM THE CURRENT USER FROM THE LIST')
+  </script>
+
+  <div class="hyperlinks">  
+  <h2>Choose a Farm for More Details</h2>
+  <ul>
+  
+    <li>
+    <a href="http://localhost:4000/details/1021327?name=Ariana&amp;zipcode=80016&amp;marketname=%20Highlands%20Ranch%20Farmers%20Market">
+       Highlands Ranch Farmers Market</a>
+      </li>
+      
+    <li>
+    <a href="http://localhost:4000/details/1021326?name=Ariana&amp;zipcode=80016&amp;marketname=%20Southwest%20Plaza%20Farmers%20Market">
+       Southwest Plaza Farmers Market</a>
+      </li>
+      
+    <li>
+    <a href="http://localhost:4000/details/1019739?name=Ariana&amp;zipcode=80016&amp;marketname=%20The%20Orchard%20Farmers%20Market">
+       The Orchard Farmers Market</a>
+      </li>
+      
+    <li>
+    <a href="http://localhost:4000/details/1000210?name=Ariana&amp;zipcode=80016&amp;marketname=%20Colorado%20Farm%20and%20Art%20Market">
+       Colorado Farm and Art Market</a>
+      </li>
+      
+    <li>
+    <a href="http://localhost:4000/details/1009656?name=Ariana&amp;zipcode=80016&amp;marketname=%20Colorado%20Farm%20and%20Art%20Market">
+       Colorado Farm and Art Market</a>
+      </li>
+      
+    <li>
+    <a href="http://localhost:4000/details/1004255?name=Ariana&amp;zipcode=80016&amp;marketname=%20City%20of%20Loveland%20Farmers%20Market">
+       City of Loveland Farmers Market</a>
+      </li>
+      
+    <li>
+    <a href="http://localhost:4000/details/1021289?name=Ariana&amp;zipcode=80016&amp;marketname=%20Greeley%20Farmers%20Market">
+       Greeley Farmers Market</a>
+      </li>
+      
+    <li>
+    <a href="http://localhost:4000/details/1019112?name=Ariana&amp;zipcode=80016&amp;marketname=%20Sunday%20Market%20on%20Main%20Street">
+       Sunday Market on Main Street</a>
+      </li>
+      
+    <li>
+    <a href="http://localhost:4000/details/1021291?name=Ariana&amp;zipcode=80016&amp;marketname=%20Larimer%20County%20Farmers%27%20Market">
+       Larimer County Farmers' Market</a>
+      </li>
+      
+    <li>
+    <a href="http://localhost:4000/details/1006069?name=Ariana&amp;zipcode=80016&amp;marketname=%20Minturn%20Market">
+       Minturn Market</a>
+      </li>
+        
+    </ul>
+    </div>
+</div>
+<br>
+<br>
+<br>
+
+      <nav id="logout"><a href="http://localhost:4000/logout">Logout</a></nav>
+
+      
+  <script>
+      let user = localStorage.getItem('user')
+      console.log(user)
+      if (user) {
+          document.getElementById('logout').innerHTML = "<a href='/logout'>Logout</a>"
+      }
+  </script>
+
+     <!-- jQuery -->
+    <script src="./Market Match_files/jquery.js"></script>
+     <!-- Bootstrap JavaScript -->
+    <script src="./Market Match_files/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+  
+ 
+</body></html>

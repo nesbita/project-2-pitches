@@ -1,0 +1,9 @@
+.container{
+    border-style: solid;
+    border-width: thick;
+    background-color: rgba(0, 40, 104, 0.7);
+    padding: 10px;
+    margin: 100px 100px 100px 100px;
+    display: flex;
+    justify-content: center;
+}

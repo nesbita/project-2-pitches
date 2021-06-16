@@ -1,7 +1,46 @@
-<div>
-  <h2 id='user'></h2>
+<style>
+  body{
+    background-image: url('/images/list_page_image.jpeg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin-top: 10px;
+    margin-left: 20px;
+    color: whitesmoke;
+  } 
+  
+  .container{
+    background-color: rgba(184, 162, 125, 0.2);
+    display: block;
+    justify-content: center; 
+    padding-bottom: 25px;
+    margin-right: 70%;
+  }
+
+
+  a{
+    color: whitesmoke;
+    font-size: 24px;
+    font-weight: bold;
+  }
+
+  h2{
+    text-decoration: underline;
+    line-height: 30px;
+  }
+
+  li{
+    line-height: 35px;
+  } 
+</style>
+
+<div class = container>
+  <h1 id='user'></h1>
 
   <a href="/update">Update Location</a> 
+  <br>
+  <br>
+  <br>
+  <br>
 
   <script>
     if (!localStorage.getItem('user')) {
@@ -17,10 +56,18 @@
     console.log(`User logged in: ${currentUser}`, 'IM THE CURRENT USER FROM THE LIST')
   </script>
 
-<h3>Choose a Farm for More Details</h3>
-<% farmMarket.forEach(farm => { %>
+  <div class=hyperlinks>  
+  <h2>Choose a Farm for More Details</h2>
+  <ul>
+  <% farmMarket.forEach(farm => { %>
+    <li>
     <a href="/details/<%=farm.id%>?name=<%=name%>&zipcode=<%=zipcode%>&marketname=<%=farm.marketname.slice(4)%>">
-      <br>
       <%=farm.marketname.slice(4)%></a>
-<% }); %>  
+      </li>
+      <% }); %>  
+    </ul>
+    </div>
 </div>
+<br>
+<br>
+<br>

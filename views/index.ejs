@@ -1,19 +1,27 @@
 <style>
-  body {
+  body{
     background-image: url('/images/home_page_image.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     margin-top: 15%;
-    color: white;
+    color: whitesmoke;
   }
-  </style>  
+  .container{
+    background-color: rgba(184, 162, 125, 0.5);
+    display: block;
+    justify-content: center; 
+    padding-bottom: 25px;
+  }
+  </style> 
+
   <div class="container">
+    </style>
   <h1 class="text-center">WELCOME TO MARKET MATCH!</h1>
   <h2 class="text-center">
     We'll help you find the farmers markets near you.
     Enter your name and zip code below to get started.
   </h2> 
-
+  <br>
   <form action="/list" method="POST">
       <div class="text-center">
           <label for="name">Your Name</label>
@@ -21,11 +29,16 @@
       </div>
         
       <div class="text-center">
-          <label for="content">Your Zip Code</label>
+          <label for="content">Zip Code</label>
           <input type="integer" id="zipcode" name='zipcode' required />
       </div>
-      <button class="btn btn-primary">Find my market!</button> 
+    <br>
+
+      <div class="text-center">
+        <button class="btn btn-primary">Find my market!</button> 
+      </div>
   </form>
 </div>
+
 
   
