@@ -3,7 +3,7 @@ const axios = require('axios');
 const ejsLayouts = require('express-ejs-layouts');
 const db = require('./models');
 const app = express();
-const PORT = 4000 
+const PORT = process.env.Port || 4000 
 const methodOverride = require('method-override')
 
 app.set('view engine', 'ejs')
@@ -23,7 +23,7 @@ app.get('/', (req, res) => {
 
 app.use('/', require('./routes/markets'))
 
-app.listen(PORT, () => {
+app.listen(process.env.PORT || 4000, () => {
     console.log('...listening on', PORT);
 })
 

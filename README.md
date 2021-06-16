@@ -17,7 +17,7 @@ In designing and building your project, you will start by forking and cloneing t
 Market Finder
 
 2. Technologies used: 
-Axios, Express, PostgresSQL, Sequelize, Express-ejs, Express-ejs-layouts,  HTML, CSS, Javascript
+Axios, Express, PostgresSQL, Sequelize, Express-ejs, Express-ejs-layouts,  HTML, CSS, Javascript, method override
 
 3. Simple wireframes
      * Can be handdrawn, or with tool of your choice
@@ -34,8 +34,8 @@ Fill in the zip code value where it's called for ("http://search.ams.usda.gov/fa
 -Create a GET route to find markets by zip code 
 -Create a GET route to view products at markets
 -Create a POST route to add markets to favorites
--Create a PUT route to allow users to add comments
--Create a DELETE route to remove comments
+-Create a PUT route to allow users to update location
+-Create a DELETE route to remove favorite markets
 
 8. Stretch goals (x2-5)
 -use geolocation API and mapbox to show user's distance from farmers markets
