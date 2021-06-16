@@ -10,8 +10,7 @@ body{
 .container{
     background-color: rgba(184, 162, 125, 0.5);
     display: block;
-    justify-content: center; 
-    
+    justify-content: center;  
   }
 
 a{ 
@@ -44,11 +43,11 @@ a{
           <input hidden type="text" name="marketname" value="<%=marketname%>"> 
           <input hidden type="text" name="name" value="<%=name%>"> 
           <input hidden name="user" id="userInput" />
-        </form>
+          <div class="text-center">
+            <input class="btn btn-primary" type="submit" value='Add Market to Favorites!'>
+          </div>
+      </form>
         
-        <div class="text-center">
-        <input class="btn btn-primary" type="submit" value='Add Market to Favorites!'>
-        </div>
   
     </div>
 

@@ -1,4 +1,26 @@
-<div class="updatedContainer">
+<style>
+  body{
+    background-image: url('/images/update_page_image.jpeg');
+    background-size: 100% 100vh;
+    background-repeat: no-repeat;
+    margin-top: 15%;
+    color: whitesmoke;
+  }
+  .container{
+    background-color: rgba(184, 162, 125, 0.5);
+    display: block;
+    justify-content: center; 
+    padding-bottom: 25px;
+  }
+
+  .loggingOut{
+    display: flex;
+    justify-content: flex-start;
+    width: 100vw;
+  }
+  </style> 
+
+<div class="container">
     <h2 class="text-center">
       Need to update your location?  Put in your name and a new zip code below.
     </h2>
@@ -14,5 +36,8 @@
           <label for="content">Your Zip Code</label>
           <input type="integer" id="zipcode" name='zipcode' required />
       </div>
+
+    <div class="text-center">
       <button class="btn btn-primary">Find my market!</button> 
+    </div>
   </form>
