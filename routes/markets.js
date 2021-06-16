@@ -82,8 +82,9 @@ router.get('/favorite', async (req, res) => {
         console.log(user, '🦊')
     let fav = await user.getFavorites()
         console.log(fav, '🐼')
-            res.render('favorite', {favorites: fav})
+            res.render('favorite', {favorites: fav, user:currentUser})
 })
+
 //2nd
 // router.get('/favorite', (req, res) => {
 //     // Get all market records from API database
@@ -97,7 +98,9 @@ router.get('/favorite', async (req, res) => {
 
 // (DELETE) delete a favorite from favorites list
 router.delete('/favorite/:name', (req, res) => {
+    let currentUser = req.body.name
     console.log(req.params.name)
+    console.log(currentUser, 'USE YOUR WORDS!!!!')
             // req.params.name
     db.favorite.destroy({
         where: {
@@ -106,7 +109,8 @@ router.delete('/favorite/:name', (req, res) => {
         })
         .then ((data) => {
             console.log('success 🐮')
-            res.redirect('/favorite')
+            // res.redirect('/favorite?name=Ariana')
+            res.redirect(`/favorite?name=${currentUser}`);
         })
         .catch((err) => {
             console.log('noooo')
